@@ -14,6 +14,7 @@ public class BookShelfContext : DbContext
     public DbSet<UserOperationClaim> UserOperationClaims { get; set; }  
     public DbSet<User> Users { get; set; }
     public DbSet<Book> Books { get; set; }
+    public DbSet<ReadingPlan> ReadingPlans { get; set; }
 
     public BookShelfContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
     {

@@ -26,6 +26,6 @@ public class BookConfiguration : IEntityTypeConfiguration<Book>
         builder.Property(b => b.AddedDate).HasColumnName("AddedDate").HasDefaultValueSql("GETUTCDATE()").IsRequired();
         
 
-        builder.HasQueryFilter(w => !w.DeletedDate.HasValue);
+        builder.HasQueryFilter(rp => !rp.DeletedDate.HasValue);
     }
 }
