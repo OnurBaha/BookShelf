@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Entities.Concretes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
@@ -12,6 +13,7 @@ public class BookShelfContext : DbContext
     public DbSet<OperationClaim> OperationClaims { get; set; }
     public DbSet<UserOperationClaim> UserOperationClaims { get; set; }  
     public DbSet<User> Users { get; set; }
+    public DbSet<Book> Books { get; set; }
 
     public BookShelfContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
     {

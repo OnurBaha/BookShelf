@@ -19,10 +19,6 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.2.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 	<ItemGroup>
 		<ProjectReference Include="..\Business\Business.csproj" />
 		<ProjectReference Include="..\Core\Core.csproj" />

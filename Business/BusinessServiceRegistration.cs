@@ -20,6 +20,7 @@ public static class BusinessServiceRegistration
         services.AddScoped<IUserService, UserManager>();
         services.AddScoped<IOperationClaimService, OperationClaimManager>();
         services.AddScoped<IUserOperationClaimService, UserOperationClaimManager>();
+        services.AddScoped<IBookService, BookManager>();
 
 
 
