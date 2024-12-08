@@ -2,6 +2,7 @@
 using DataAccess.Abstracts;
 using DataAccess.Contexts;
 using Entities.Concretes;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,13 @@ namespace DataAccess.Concretes
     {
         public EfReadingPlanDal(BookShelfContext context) : base(context)
         {
+        }
+
+        public async Task<IEnumerable<Book>> GetBooksByIdsAsync(IEnumerable<Guid> bookIds)
+        {
+            return await Context.Books 
+                .Where(book => bookIds.Contains(book.Id))
+                .ToListAsync();
         }
     }
 }

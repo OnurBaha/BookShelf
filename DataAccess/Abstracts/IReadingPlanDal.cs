@@ -10,5 +10,7 @@ namespace DataAccess.Abstracts
 {
     public interface IReadingPlanDal : IRepository<ReadingPlan, Guid>, IAsyncRepository<ReadingPlan, Guid>
     {
+        Task<IEnumerable<Book>> GetBooksByIdsAsync(IEnumerable<Guid> bookIds);
+
     }
 }

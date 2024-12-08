@@ -12,5 +12,6 @@ namespace Business.Dtos.Requests.ReadingPlanRequests
         public string UserName { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public List<Guid> BookIds { get; set; }
     }
 }

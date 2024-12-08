@@ -13,6 +13,7 @@ using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
 using Entities.Concretes;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,11 +35,30 @@ namespace Business.Concretes
 
         public async Task<CreatedReadingPlanResponse> AddAsync(CreateReadingPlanRequest createReadingPlanRequest)
         {
-            ReadingPlan readingPlan = _mapper.Map<ReadingPlan>(createReadingPlanRequest);
-            ReadingPlan createdReadingPlan = await _readingPlanDal.AddAsync(readingPlan);
-            CreatedReadingPlanResponse createdReadingPlanResponse = _mapper.Map<CreatedReadingPlanResponse>(createdReadingPlan);
-            return createdReadingPlanResponse;
+            // Kitapları veritabanından çek
+            var books = await _readingPlanDal.GetBooksByIdsAsync(createReadingPlanRequest.BookIds);
+
+            if (books == null || !books.Any())
+                throw new ArgumentException("Belirtilen kitaplar bulunamadı.");
+
+            // ReadingPlan entity'si oluştur
+            var readingPlan = new ReadingPlan
+            {
+                Id = Guid.NewGuid(),
+                UserName = createReadingPlanRequest.UserName,
+                StartDate = createReadingPlanRequest.StartDate,
+                EndDate = createReadingPlanRequest.EndDate,
+                Books = books.ToList() // Çekilen kitaplar ekleniyor
+            };
+
+            // Veritabanına ekle
+            var createdReadingPlan = await _readingPlanDal.AddAsync(readingPlan);
+
+            // Sonuç döndür
+            var response = _mapper.Map<CreatedReadingPlanResponse>(createdReadingPlan);
+            return response;
         }
+
 
         public async Task<DeletedReadingPlanResponse> DeleteAsync(Guid id)
         {
