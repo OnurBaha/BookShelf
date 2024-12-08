@@ -44,7 +44,7 @@ public class UserOperationClaimManager : IUserOperationClaimService
     {
         var userOperationClaim = await _userOperationClaimDal.GetListAsync(
            predicate: a => a.UserId == userId,
-           include: er => er.Include(er => er.User).Include(er=>er.OperationClaim));
+           include: er => er.Include(er => er.User).Include(er => er.OperationClaim));
         var mappedExamResult = _mapper.Map<Paginate<GetListUserOperationClaimResponse>>(userOperationClaim);
         return mappedExamResult;
     }
@@ -58,7 +58,7 @@ public class UserOperationClaimManager : IUserOperationClaimService
            .Include(al => al.User));
         var mappedListed = _mapper.Map<GetListUserOperationClaimResponse>(userOperationClaim);
         return mappedListed;
-             
+
     }
 
     public async Task<IPaginate<GetListUserOperationClaimResponse>> GetListAsync(PageRequest pageRequest)
@@ -66,7 +66,7 @@ public class UserOperationClaimManager : IUserOperationClaimService
         var userOperationClaim = await _userOperationClaimDal.GetListAsync(
                        index: pageRequest.PageIndex,
                        size: pageRequest.PageSize,
-                       include:er=>er.Include(er => er.OperationClaim)
+                       include: er => er.Include(er => er.OperationClaim)
                        );
         var mappedUserOperationClaim = _mapper.Map<Paginate<GetListUserOperationClaimResponse>>(userOperationClaim);
         return mappedUserOperationClaim;

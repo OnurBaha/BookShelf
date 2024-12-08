@@ -21,8 +21,8 @@ public class UserOperationClaimProfile : Profile
         CreateMap<UserOperationClaim, GetListUserOperationClaimResponse>()
             .ForMember(destinationMember: dest => dest.OperationClaimName,
             memberOptions: opt => opt.MapFrom(u => u.OperationClaim.Name)).ReverseMap();
-            ;
-        
+        ;
+
         CreateMap<IPaginate<UserOperationClaim>, Paginate<GetListUserOperationClaimResponse>>().ReverseMap();
     }
 }

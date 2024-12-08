@@ -20,7 +20,7 @@ public class SeriLogMiddleware
         var endpoint = context.Features.Get<IEndpointFeature>()?.Endpoint;
         var loggingAttributes = endpoint?.Metadata.ToList().Where(c => c.ToString().Contains(nameof(LoggingAttribute))).ToList();
 
-        if (loggingAttributes !=null)
+        if (loggingAttributes != null)
         {
             foreach (var loggingAttribute in loggingAttributes)
             {
@@ -73,6 +73,6 @@ public class SeriLogMiddleware
             Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
             WriteIndented = true
         };
-        return JsonSerializer.Serialize(logDetail,options);
+        return JsonSerializer.Serialize(logDetail, options);
     }
 }

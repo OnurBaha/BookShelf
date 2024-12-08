@@ -15,4 +15,3 @@ public static class ClaimsPrincipalExtensions
         return claimsPrincipal?.Claims(ClaimTypes.Role);
     }
 }
-

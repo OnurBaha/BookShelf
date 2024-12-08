@@ -6,4 +6,4 @@ public class UserOperationClaim : Entity<Guid>
     public Guid OperationClaimId { get; set; }
     public User User { get; set; }
     public OperationClaim OperationClaim { get; set; }
-} 
+}

@@ -2,6 +2,7 @@
 using Business.Abstracts;
 using Business.Dtos.Requests.AuthRequests;
 using Business.Dtos.Requests.MailRequests;
+using Business.Dtos.Requests.OperationClaimRequests;
 using Business.Dtos.Requests.UserOperationClaimRequests;
 using Business.Dtos.Requests.UserRequests;
 using Business.Dtos.Responses.AuthResponses;
@@ -57,9 +58,18 @@ public class AuthManager : IAuthService
 
         User mappedUser = _mapper.Map<User>(getUserResponse);
 
-      
+        
 
-        GetListOperationClaimResponse operationClaim = await _operationClaimService.GetByRoleName(Roles.User);
+        var operationClaim = await _operationClaimService.GetByRoleName(Roles.User);
+        if (operationClaim == null)
+        {
+            var createOperationClaimRequest = new CreateOperationClaimRequest
+            {
+                Name = Roles.User
+            };
+            var addedOperationClaimResponse = await _operationClaimService.AddAsync(createOperationClaimRequest);
+            operationClaim = _mapper.Map<GetListOperationClaimResponse>(addedOperationClaimResponse);
+        }
 
         await _userOperationClaimService.AddAsync(new CreateUserOperationClaimRequest
         {

@@ -18,6 +18,8 @@ namespace DataAccess.EntityConfigurations
             builder.Property(op => op.Id).HasColumnName("Id").IsRequired();
             builder.Property(op => op.Name).HasColumnName("Name").IsRequired();
 
+            builder.HasIndex(indexExpression: u => u.Name, name: "UK_Name").IsUnique();
+
             builder.HasMany(u => u.UserOperationClaims);
 
             builder.HasQueryFilter(op => !op.DeletedDate.HasValue);

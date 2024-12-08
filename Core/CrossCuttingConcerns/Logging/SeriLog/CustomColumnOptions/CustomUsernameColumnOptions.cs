@@ -24,4 +24,3 @@ public static class CustomUsernameColumnOptions
         return customColumnOptions;
     }
 }
-

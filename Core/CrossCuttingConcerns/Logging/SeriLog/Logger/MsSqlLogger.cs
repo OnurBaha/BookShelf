@@ -44,7 +44,7 @@ public class MsSqlLogger : LoggerServiceBase
             .MSSqlServer(
             logConfiguration.ConnectionString,
             sinkOptions,
-            
+
             columnOptions: columnOptions)
                  .Enrich.FromLogContext()
                  .Enrich.With<CustomUsernameColumnEvent>()
