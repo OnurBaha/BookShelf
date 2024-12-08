@@ -25,7 +25,7 @@ namespace Business.Profiles
             CreateMap<ReadingPlan, UpdatedReadingPlanResponse>().ReverseMap();
 
             CreateMap<ReadingPlan, GetListReadingPlanResponse>().ReverseMap();
-            CreateMap<Paginate<ReadingPlan>, Paginate<GetListReadingPlanResponse>>().ReverseMap();
+            CreateMap<ReadingPlan, GetListReadingPlanResponse>().ReverseMap();
         }
     }
 }

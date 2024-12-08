@@ -9,8 +9,8 @@ namespace Entities.Concretes;
 
 public class ReadingPlan:Entity<Guid>
 {
-    public string UserName { get; set; } 
-    public List<Book>? Books { get; set; }
+    public string UserName { get; set; }
+    public ICollection<Book> Books { get; set; }
     public DateTime StartDate { get; set; } 
     public DateTime EndDate { get; set; }
 }

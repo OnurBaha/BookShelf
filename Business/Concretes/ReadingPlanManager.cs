@@ -79,6 +79,7 @@ namespace Business.Concretes
         public async Task<IPaginate<GetListReadingPlanResponse>> GetListAsync(PageRequest pageRequest)
         {
             var data = await _readingPlanDal.GetListAsync(
+                include: rp => rp.Include(rp => rp.Books),
                index: pageRequest.PageIndex,
                size: pageRequest.PageSize
            );
