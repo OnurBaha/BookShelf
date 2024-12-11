@@ -9,7 +9,8 @@ namespace Entities.Concretes
 {
     public class Book : Entity<Guid>
     {
-        public string Name { get; set; } 
+        public string Name { get; set; }
+        public string BookImage { get; set; }
         public string Author { get; set; }
         public string Category { get; set; } 
         public int Rating { get; set; } 

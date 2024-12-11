@@ -12,6 +12,7 @@ namespace Business.Dtos.Responses.BookResponses
         public string Name { get; set; }
         public string Author { get; set; }
         public string Category { get; set; }
+        public string BookImage { get; set; }
         public int Rating { get; set; }
         public bool IsRead { get; set; }
         public bool IsFavorite { get; set; }

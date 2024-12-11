@@ -19,6 +19,7 @@ public class BookConfiguration : IEntityTypeConfiguration<Book>
         builder.Property(b => b.Id).HasColumnName("Id").IsRequired();
         builder.Property(b => b.Author).HasColumnName("Author").IsRequired();
         builder.Property(b => b.Category).HasColumnName("Category").IsRequired();
+        builder.Property(b => b.BookImage).HasColumnName("BookImage").IsRequired();
         builder.Property(b => b.Rating ).HasColumnName("Rating").IsRequired();
         builder.Property(b => b.IsRead).HasColumnName("IsRead").IsRequired();
         builder.Property(b => b.IsFavorite).HasColumnName("IsFavorite").IsRequired();
