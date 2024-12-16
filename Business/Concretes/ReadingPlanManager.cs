@@ -1,13 +1,6 @@
 ﻿using AutoMapper;
 using Business.Abstracts;
 using Business.Dtos.Requests.ReadingPlanRequests;
-using Business.Dtos.Requests.ReadingPlanRequests;
-using Business.Dtos.Requests.ReadingPlanRequests;
-using Business.Dtos.Responses.ReadingPlanResponses;
-using Business.Dtos.Responses.ReadingPlanResponses;
-using Business.Dtos.Responses.ReadingPlanResponses;
-using Business.Dtos.Responses.ReadingPlanResponses;
-using Business.Dtos.Responses.ReadingPlanResponses;
 using Business.Dtos.Responses.ReadingPlanResponses;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
